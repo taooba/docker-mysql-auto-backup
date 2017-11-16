@@ -27,9 +27,6 @@ if [ -z "$CRONTAB_TIME" ]; then
 fi
 
 # 配置 crontab 自动任务
-cat /etc/crontabs/root | sed -e '/^$/d' > /etc/crontabs/tmp
-rm /etc/crontabs/root
-mv /etc/crontabs/tmp /etc/crontabs/root
 CRONTAB_STR=${CRONTAB_TIME}" /bin/sh /mysql_backup.sh"
 echo "${CRONTAB_STR}" >> /etc/crontabs/root
 
