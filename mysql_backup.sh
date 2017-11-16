@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+MYSQL_BACKUP_HOST=$(eval echo ${MYSQL_BACKUP_HOST})
+MYSQL_BACKUP_USER=$(eval echo ${MYSQL_BACKUP_USER})
+MYSQL_BACKUP_PWD=$(eval echo ${MYSQL_BACKUP_PWD})
+MYSQL_BACKUP_DATABASES=$(eval echo ${MYSQL_BACKUP_DATABASES})
+
 DATESTR=$(date +%Y-%m-%d_%T)
 
 # 如果没有设置过期天数 则默认7天
