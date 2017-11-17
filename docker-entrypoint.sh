@@ -28,7 +28,7 @@ fi
 
 # 配置 crontab 自动任务
 CRONTAB_STR=${CRONTAB_TIME}" /bin/sh /mysql_backup.sh"
-echo "${CRONTAB_STR}" >> /etc/crontabs/root
+echo "${CRONTAB_STR}" > /etc/crontabs/root
 
 # 启动 crond
 crond start
