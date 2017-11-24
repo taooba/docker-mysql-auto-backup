@@ -9,10 +9,10 @@
 
 ```shell
 docker run -it -v /mysql_backups/:/mysql_backups/:rw 
--e MYSQL_BACKUP_HOST=xxx.xxx.xxx.xxx 
--e MYSQL_BACKUP_USER=root 
--e MYSQL_BACKUP_PWD=xxxxx 
--e MYSQL_BACKUP_DATABASES=xxx 
+-e MYSQL_DB_HOST=xxx.xxx.xxx.xxx 
+-e MYSQL_DB_USER=root 
+-e MYSQL_DB_PWD=xxxxx 
+-e MYSQL_DB_NAME=xxx 
 taooba/mysql-auto-backup
 ```
 
@@ -22,10 +22,10 @@ taooba/mysql-auto-backup
 
 | 变量名                        |                    作用                    | 必选/可选 |
 | :------------------------- | :--------------------------------------: | :---: |
-| MYSQL_BACKUP_HOST          |              备份数据库服务器的主机地址               |  必选   |
-| MYSQL_BACKUP_USER          |               访问备份数据库的用户名                |  必选   |
-| MYSQL_BACKUP_PWD           |                访问备份数据库的密码                |  必选   |
-| MYSQL_BACKUP_DATABASES     |            要备份的数据库（多个使用空格分割）             |  必选   |
+| MYSQL_DB_HOST              |              备份数据库服务器的主机地址               |  必选   |
+| MYSQL_DB_USER              |               访问备份数据库的用户名                |  必选   |
+| MYSQL_DB_PWD               |                访问备份数据库的密码                |  必选   |
+| MYSQL_DB_NAME              |            要备份的数据库（多个使用空格分割）             |  必选   |
 | MYSQL_BACKUP_CUSTOM_OPTION |      作用 `mysqldump` 命令的自定义选项，默认为 -q      |  可选   |
 | CRONTAB_TIME               | `crontab` 命令的间隔时间, 需要符合 `crontab` 命令的时间格式，例："* * * * *"。若为空则默认每天凌晨 5 点 |  可选   |
 | BACKUP_DAYS                |          备份数据保留时间（天），若为空默认为 7 天          |  可选   |
@@ -34,4 +34,4 @@ taooba/mysql-auto-backup
 
 # Tips
 
-可以在传递环境变量时传递一个变量，只需在变量名前加上 `$` 符号即可。例如启动一个 `mysql_backup` 容器，它连接一个 `mysql` 容器: `docker run …  --link mysql:mysql` 。此时在 `mysql_backup `  的容器中会生成一个名为 `MYSQL_PORT_3306_TCP_ADDR` 的环境变量保存着 `mysql` 容器的地址。可以通过 `MYSQL_BACKUP_HOST=$MYSQL_PORT_3306_TCP_ADDR` 的形式把数据库地址赋值给 `MYSQL_BACKUP_HOST` 。
+可以在传递环境变量时传递一个变量，只需在变量名前加上 `$` 符号即可。例如启动一个 `mysql_backup` 容器，它连接一个 `mysql` 容器: `docker run …  --link mysql:mysql` 。此时在 `mysql_backup `  的容器中会生成一个名为 `MYSQL_PORT_3306_TCP_ADDR` 的环境变量保存着 `mysql` 容器的地址。可以通过 `MYSQL_DB_HOST=$MYSQL_PORT_3306_TCP_ADDR` 的形式把数据库地址赋值给 `MYSQL_DB_HOST` 。
