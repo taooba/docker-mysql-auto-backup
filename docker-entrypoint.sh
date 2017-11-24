@@ -1,23 +1,23 @@
 #!/bin/sh
 set -e
 
-if [ -z "$MYSQL_BACKUP_HOST" ]; then 
-  echo >&2 '缺少环境变量 MYSQL_BACKUP_HOST'
+if [ -z "$MYSQL_DB_HOST" ]; then 
+  echo >&2 '缺少环境变量 MYSQL_DB_HOST'
   exit 1
 fi
 
-if [ -z "$MYSQL_BACKUP_USER" ]; then 
-  echo >&2 '缺少环境变量 MYSQL_BACKUP_USER'
+if [ -z "$MYSQL_DB_USER" ]; then 
+  echo >&2 '缺少环境变量 MYSQL_DB_USER'
   exit 1
 fi
 
-if [ -z "$MYSQL_BACKUP_PWD" ]; then 
-  echo >&2 '缺少环境变量 MYSQL_BACKUP_PWD'
+if [ -z "$MYSQL_DB_PWD" ]; then 
+  echo >&2 '缺少环境变量 MYSQL_DB_PWD'
   exit 1
 fi
 
-if [ -z "$MYSQL_BACKUP_DATABASES" ]; then 
-  echo >&2 '缺少环境变量 MYSQL_BACKUP_DATABASES'
+if [ -z "$MYSQL_DB_NAME" ]; then 
+  echo >&2 '缺少环境变量 MYSQL_DB_NAME'
   exit 1
 fi
 
