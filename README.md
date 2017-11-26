@@ -1,4 +1,4 @@
-# docker-mysql-backup
+# docker-mysql-auto-backup
 [![Docker Hub](http://dockeri.co/image/taooba/mysql-auto-backup)](https://hub.docker.com/r/taooba/mysql-auto-backup/)
 
 一个专门用来做 MySQL 数据库自动备份的自定义 Docker 镜像，适合个人项目或微笑项目，因为功能简单没有做 Tag 区分只有 `latest` 版本。基础镜像采用的是 `alpine:latest`。内部使用 `crontab` 命令按一定的时间间隔来调用备份脚本，使用 `mysqldump` 来备份数据库。备份的内容在匿名数据卷 `VOLUME /mysql_backups` 中。
